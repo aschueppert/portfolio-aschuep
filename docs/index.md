@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "Amelia Schueppert"
-  text: "an MIT student's portfolio"
-  tagline: "for 6.1040"
+  name: "Amelia Schueppert's"
+  text: "Awesome Portfolio"
+  tagline: "Fall 2024 6.1040"
   actions:
     - theme: brand
       text: Template Repository
@@ -20,6 +20,8 @@ features:
     link: /blogs
   - title: Assignments
     details: All of your assignments will be posted on your portfolio.
+    link: /assignments
   - title: About Me
-    details: You'll implement a small bio about yourself on here!
+    details: A small bio about me!
+    link: /about
 ---
