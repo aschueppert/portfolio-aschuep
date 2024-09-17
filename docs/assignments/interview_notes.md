@@ -2,7 +2,7 @@
 title: Interview Notes
 layout: doc
 ---
-# Interview Notes
+# Interview Raw Notes
 
 * Can you walk me through your typical day of social media use? 
     * J: check facebook @ 8am during coffee  → check the news, check mid-afternoon and night (~3x a day) check instagram 1x a week
