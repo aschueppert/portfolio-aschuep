@@ -120,10 +120,26 @@ Duolingo keeps users engaged by rewarding streaks and milestones. MoodBoard coul
 ## Storyboarding and sketching
 
 ### Story 1: Posting Concert
+#### Motivation
+Adam attended a concert with four of his friends. They all had lots of fun and want to post their experience to social media. They all took lots of photos but they are all on different people's phones. 
+#### Storyboard
 ![concert story](assets/story1.png){style=" display: block; margin: 0 auto;" width="1000" }
-
+#### Notes on Brittleness/Unclear Areas:
+* What happens if someone does not approve of the post?
+* How to make sure everyone agrees on the photos?
 ### Story 2: Attending Soccer Event
+#### Motivation
+Zoe is a new freshman who loves playing soccer. She want to continue working out at her new college but doesn't know how to. 
+#### Storyboard
 ![soccer story](assets/story2.png){style=" display: block; margin: 0 auto;" width="1000" }
-
+#### Notes on Brittleness/Unclear Areas:
+* How do users get reminders about events
+* How to promote public events from private profile
 ### Story 3: Planning Concert
+#### Motivation
+Ella is a singer who wants to host a concert on campus but she doesn't know where and how she should host it. 
+#### Storyboard
 ![concert 2 story](assets/story3.png){style=" display: block; margin: 0 auto;" width="1000" }
+#### Notes on Brittleness/Unclear Areas:
+* How to easily move posts into different saved boards
+* How to create new boards when you come across a post
