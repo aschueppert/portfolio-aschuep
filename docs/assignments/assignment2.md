@@ -6,9 +6,11 @@ layout: doc
 # Assignment 2: Divergent Design
 
 ## Broad Application Goals
-Name: MoodBoard \
-Audience: New college students looking to connect with peers and build meaningful communities without the distractions of traditional social media. \
-Value: MoodBoard offers a focused, community-driven platform that helps users discover and engage with new people and groups through intentional, purposeful interactions. By eliminating endless scrolling, focusing content on interaction-specific wants, and promoting easy ways to share collaboratively share and plan experiences and events, MoodBoard prioritizes real connections and emotional well-being.
+Name: MoodBoard 
+
+Audience: New college students looking to connect with peers and build meaningful communities without the distractions of traditional social media. 
+
+Value: MoodBoard offers a focused, community-driven platform that helps users discover and engage with new people and groups through intentional, purposeful interactions. By eliminating endless scrolling, focusing content on interaction-specific wants, and promoting easy ways to collaboratively share and plan experiences and events, MoodBoard prioritizes real connections and emotional well-being.
 
 ## Scrapbook of Comparables
 
@@ -53,11 +55,11 @@ Duolingo keeps users engaged by rewarding streaks and milestones. MoodBoard coul
 
 
 ## Brainstorming Feature Ideas
-1. **Tag Location**: Users can add location tags to posts by typing it in or using GPS data. These tags would allow MoodBoard to categorize posts geographically (e.g., "library" or "kresge lawn"), providing users with information about where events took place. These tags could also allow users to browse posts by location allowing them to see events that were hosted in a specific location to help them plan their own events for that location.  
+1. **Collaborative Posts**: Multiple users can collaborate on a post by uploading their own images and captions. This feature makes it easier for groups of people to share their experiences from activities and events and prevents multiple identical or similar posts of the same content from different people. 
 
-2. **Tag Post Type**: Users select a post type (e.g., "study session," "campus event") when posting. This classification will help organize and filter content for others. When users are looking to browse a specific type of content on the app. These tags would help the app recommend posts that match that interest. 
+2. **Tag Location**: Users can add location tags to posts by typing it in or using GPS data. These tags would allow MoodBoard to categorize posts geographically (e.g., "library" or "kresge lawn"), providing users with information about where events took place. These tags could also allow users to browse posts by location allowing them to see events that were hosted in a specific location to help them plan their own events for that location.  
 
-3. **Collaborative Posts**: Multiple users can collaborate on a post by uploading their own images and captions. This feature makes it easier for groups of people to share their experiences from activities and events and prevents multiple identical or similar posts of the same content from different people. 
+3. **Tag Post Type**: Users select a post type (e.g., "study session," "campus event") when posting. This classification will help organize and filter content for others. When users are looking to browse a specific type of content on the app. These tags would help the app recommend posts that match that interest. 
 
 4. **Category Feed**: Users can filter their feed based on categories (e.g., "music events," "study tips") to focus on specific types of content rather than scrolling aimlessly. This feature encourages people to use the app intentionally with an interest-specific goal. It also increases user's access to posts that align with their interests when using the app.
 
@@ -93,12 +95,14 @@ Duolingo keeps users engaged by rewarding streaks and milestones. MoodBoard coul
 
 20. **Post Tags for Interests**: Users can tag other people's posts with specific interests (e.g., "photography," "food," "sports"), helping others discover content based on common hobbies or passions. These tags make it easier for people to reach content that interests them. 
 
+21. **Shared Save Boards**: Users can add friends to the saved boards allowing them to see the posts they have saved and add more posts. This sharing allows groups to collective brainstorm events/activities and include everyone's ideas. 
+
 ** Chat-GPT assisted with brainstorming some feature ideas
 
 ## VSD analysis
 
 ### Stakeholders: Non-targeted Use (Prompt 4)
-* Observation: MoodBoard could be used for purposes outside its intended scope, such as spreading misinformation or organizing inappropriate gatherings. This might be especially problematic with the app’s collaborative features. \\
+* Observation: MoodBoard could be used for purposes outside its intended scope, such as spreading misinformation or organizing inappropriate gatherings. This might be especially problematic with the app’s collaborative features. 
 * Design Response: Implement content moderation and reporting mechanisms, where users can flag posts or events that violate guidelines. Introduce AI-driven content filters to detect harmful or inappropriate use of the app, ensuring the platform remains aligned with its original goals.
 
 ### Time: The Long Now (Prompt 4)
@@ -133,13 +137,13 @@ Zoe is a new freshman who loves playing soccer. She want to continue working out
 #### Storyboard
 ![soccer story](assets/story2.png){style=" display: block; margin: 0 auto;" width="1000" }
 #### Notes on Brittleness/Unclear Areas:
-* How do users get reminders about events
-* How to promote public events from private profile
+* How do users get reminders about events?
+* How to promote public events from private profile?
 ### Story 3: Planning Concert
 #### Motivation
 Ella is a singer who wants to host a concert on campus but she doesn't know where and how she should host it. 
 #### Storyboard
 ![concert 2 story](assets/story3.png){style=" display: block; margin: 0 auto;" width="1000" }
 #### Notes on Brittleness/Unclear Areas:
-* How to easily move posts into different saved boards
-* How to create new boards when you come across a post
+* How to easily move posts into different saved boards?
+* How to create new boards when you come across a post?
