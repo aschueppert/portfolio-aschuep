@@ -57,53 +57,56 @@ Duolingo keeps users engaged by rewarding streaks and milestones. MoodBoard coul
 ## Brainstorming Feature Ideas
 1. **Collaborative Posts**: Multiple users can collaborate on a post by uploading their own images and captions. This feature makes it easier for groups of people to share their experiences from activities and events and prevents multiple identical or similar posts of the same content from different people. 
 
-2. **Tag Location**: Users can add location tags to posts by typing it in or using GPS data. These tags would allow MoodBoard to categorize posts geographically (e.g., "library" or "kresge lawn"), providing users with information about where events took place. These tags could also allow users to browse posts by location allowing them to see events that were hosted in a specific location to help them plan their own events for that location.  
+2. **Tag Post Type and Location**: Users select a post type (e.g., "study session," "campus event") and location (e.g. "library", "dorm") when posting. This classification will help organize and filter content for others. When users are looking to browse a specific type of content on the app. These tags would help the app recommend posts that match that interest. 
 
-3. **Tag Post Type**: Users select a post type (e.g., "study session," "campus event") when posting. This classification will help organize and filter content for others. When users are looking to browse a specific type of content on the app. These tags would help the app recommend posts that match that interest. 
+3. **Category Feed**: Users can filter their feed based on categories (e.g., "music events," "study tips") to focus on specific types of content rather than scrolling aimlessly. This feature encourages people to use the app intentionally with an interest-specific goal. It also increases user's access to posts that align with their interests when using the app.
 
-4. **Category Feed**: Users can filter their feed based on categories (e.g., "music events," "study tips") to focus on specific types of content rather than scrolling aimlessly. This feature encourages people to use the app intentionally with an interest-specific goal. It also increases user's access to posts that align with their interests when using the app.
+4. **Recommendation Feedback**: Users can provide feedback on whether a post aligns with the category it was placed in, allowing the app to improve its categorization over time. Users will able to upvote or downvote a post, indicating if it aligns with the category. This feedback will only be used internally and will not be visible to other users. 
 
-5. **Recommendation Feedback**: Users can provide feedback on whether a post aligns with the category it was placed in, allowing the app to improve its categorization over time. Users will able to upvote or downvote a post, indicating if it aligns with the category. This feedback will only be used internally and will not be visible to other users. 
+5. **Save Types**: Users can save posts into different folders or "boards," like Pinterest, to keep track of events, activities, or content they’re interested in. These board would help users plan event and activities based on what others have previously done and posted.
 
-6. **Save Types**: Users can save posts into different folders or "boards," like Pinterest, to keep track of events, activities, or content they’re interested in. These board would help users plan event and activities based on what others have previously done and posted.
+6. **Board Nesting**: Users can organize their saved boards hierarchically, like folders within folders, to easily manage and access related content (e.g., "Social Events > Party Ideas"). This system would make it easier for users to organize their ideas and plan better activities and events 
 
-7. **Board Nesting**: Users can organize their saved boards hierarchically, like folders within folders, to easily manage and access related content (e.g., "Social Events > Party Ideas"). This system would make it easier for users to organize their ideas and plan better activities and events 
+19. **Shared Save Boards**: Users can add friends to the saved boards allowing them to see the posts they have saved and add more posts. This sharing allows groups to collective brainstorm events/activities and include everyone's ideas. '
 
-8. **Privately Label Friend Types**: Users can label their friends with custom tags (e.g., "study buddy," "roommate") for better organization and to prioritize posts from these groups in certain feeds. These labels would help the app promote more relevant content, decreasing the amount of time needed to spend scrolling. 
+7. **Privately Label Friend Types**: Users can label their friends with custom tags (e.g., "study buddy," "roommate") for better organization and to prioritize posts from these groups in certain feeds. These labels would help the app promote more relevant content, decreasing the amount of time needed to spend scrolling. 
 
-9. **Captions for Each Image in Post**: Users can post multiple images in a single post with the option to add individual captions These captions would allow users to provide more context to different parts of posts, increasing the usefulness of the post to other users. 
+8. **Friend Discovery Through Interests**: Users can discover new friends based on shared tags or interests from their posts. The app suggests new friends who have posted in categories the user frequently engages with, facilitating connections based on common hobbies or communities.
 
-10. **Label Post Collaborator**s: The app will visibly label all collaborators in a joint post, so it’s clear who contributed, making group projects and shared events more transparent.
+9. **Label Post Collaborators**: The app will visibly label all collaborators in a joint post, so it’s clear who contributed, making group projects and shared events more transparent.
 
-11. **Post Viewer Options**: Users can select different privacy settings for collaborative posts (e.g., "only visible to collaborators" or "followers of any collaborator can see this post").
+10. **Post Viewer Options**: Users can select different privacy settings for collaborative posts (e.g., "only visible to collaborators" or "followers of any collaborator can see this post").
 
-12. **Category Change Prompts**: After viewing a specific category for a certain time, the app prompts the user to switch categories, encouraging a broader experience and avoiding content burnout. This feature helps users pursue new interests.
+11. **Category Change Prompts**: After viewing a specific category for a certain time, the app prompts the user to switch categories, encouraging a broader experience and avoiding content burnout. This feature helps users pursue new interests.
 
-13. **Add Private Friends**: Users can friend people they know in real life and choose whether their friend list is visible or private. Private friends can post collaboratively or keep posts visible only to one another.
+12. **Different Visibility Settings**: Users can friend people they know in real life and choose whether their friend list is visible or private. Private friends can post collaboratively or keep posts visible only to one another. Users also can follow interest-based accounts (clubs, sports teams, etc.) to stay updated on campus happenings and discover new communities. When users follow an account they see the accounts post but the account they follow does not see their posts.  
 
-14. **Follow Public Accounts**: Users can follow interest-based accounts (clubs, sports teams, etc.) to stay updated on campus happenings and discover new communities. 
+13. **Event Integration**: Sync the app with campus calendars so users get event notifications and relevant posts for upcoming campus activities. Users are able to to post events and collect RSVPs on the app to allow events to reach large audience. 
 
-15. **Event Integration**: Sync the app with campus calendars so users get event notifications and relevant posts for upcoming campus activities. Users are able to to post events and collect RSVPs on the app to allow events to reach large audience. 
+4. **Experience Streams**: Instead of static posts, users can create "experience streams" that update in real-time as an event or activity unfolds. For example, during a campus event, users can continuously upload photos, videos, and notes that appear in a chronological, immersive format. Viewers can tune in live or catch up later, creating a dynamic storytelling experience.
 
-16. **Custom Post Themes**: Users can design and reuse post templates, like "Campus Hangout" or "Study Session," to maintain consistency in how they share content across different events. These templates make it easier to post events faster increasing the ease at which people can share events. 
+14. **Custom Post Themes**: Users can design and reuse post templates, like "Campus Hangout" or "Study Session," to maintain consistency in how they share content across different events. These templates make it easier to post events faster increasing the ease at which people can share events. 
 
-17. **Mood-Based Categories**: Users can select a mood for their posts (e.g., "energetic," "relaxed") or search for posts by mood, offering a new way to connect with content based on how they’re feeling. This feature allows user to choose to look at content that is less specific to a certain theme but fits a more general mood
+15. **Activity-Based Challenges**: The app introduces periodic challenges (e.g., "Attend 3 study sessions this week" or "Post a creative campus hangout idea") that encourage users to participate in different activities. Completing challenges can unlock special badges or rewards, fostering engagement and community involvement.
 
-18. **Interactive Campus Maps**: Posts can be linked to an interactive campus map, allowing users to see posts from specific locations on campus, encouraging them to explore new areas. This feature helps users explore new places and plan event locations.
+15. **Mood-Based Categories**: Users can select a mood for their posts (e.g., "energetic," "relaxed") or search for posts by mood, offering a new way to connect with content based on how they’re feeling. This feature allows user to choose to look at content that is less specific to a certain theme but fits a more general mood
 
-19. **Time-Limited Posts**: Posts can be set to expire after a certain time (e.g., "visible for 48 hours"), creating urgency and encouraging quick engagement with the content. This time limitation ensures that events are visible when they are most relevant to users. 
+16. **Interactive Campus Maps**: Posts can be linked to an interactive campus map, allowing users to see posts from specific locations on campus, encouraging them to explore new areas. This feature helps users explore new places and plan event locations.
 
-20. **Post Tags for Interests**: Users can tag other people's posts with specific interests (e.g., "photography," "food," "sports"), helping others discover content based on common hobbies or passions. These tags make it easier for people to reach content that interests them. 
+17. **Time-Limited Posts**: Posts can be set to expire after a certain time (e.g., "visible for 48 hours"), creating urgency and encouraging quick engagement with the content. This time limitation ensures that events are visible when they are most relevant to users. 
 
-21. **Shared Save Boards**: Users can add friends to the saved boards allowing them to see the posts they have saved and add more posts. This sharing allows groups to collective brainstorm events/activities and include everyone's ideas. 
+18. **Post Tags for Interests**: Users can tag other people's posts with specific interests (e.g., "photography," "food," "sports"), helping others discover content based on common hobbies or passions. These tags make it easier for people to reach content that interests them. 
+
+20. **Event Badges**: Award badges for host and attending different event types. Use these badges to users to stay active on the app and in their community. Use different badges for different event types to encourage pursing diverse interests. 
+
+21. **Event Countdown Timers**: Each event post includes a countdown timer, showing the time left until the event starts. This creates a sense of urgency, helping users stay aware of upcoming events and encouraging quick RSVPs or attendance.
+
+22. **Anonymous Feedback on Events**: Users can provide anonymous feedback on events they've attended, giving hosts valuable insights to improve future events. This feedback system promotes honest opinions while ensuring privacy for attendees.
+
 
 ** Chat-GPT assisted with brainstorming some feature ideas
 
 ## VSD analysis
-
-### Stakeholders: Non-targeted Use (Prompt 4)
-* Observation: MoodBoard could be used for purposes outside its intended scope, such as spreading misinformation or organizing inappropriate gatherings. This might be especially problematic with the app’s collaborative features. 
-* Design Response: Implement content moderation and reporting mechanisms, where users can flag posts or events that violate guidelines. Introduce AI-driven content filters to detect harmful or inappropriate use of the app, ensuring the platform remains aligned with its original goals.
 
 ### Time: The Long Now (Prompt 4)
 * Observation: Over decades, MoodBoard could evolve alongside users. A 50-year-old who has used the app since college might have different needs. For example they might want to use it to maintain long-term friendships or organize alumni events.
@@ -118,9 +121,13 @@ Duolingo keeps users engaged by rewarding streaks and milestones. MoodBoard coul
 * Design Response: Offer alternative ways to engage (such as anonymously following/RSVPing to events) and allow more private interactions. Additionally, make sure the app is accessible to those with disabilities by including features like text-to-speech, closed captioning, and colorblind-friendly interfaces.
 
 ### Stakeholders: One Person, Multiple Roles (Prompt 3)
-* Observation: A student using MoodBoard may act as both a direct and indirect stakeholder. For example, they might be a content creator (direct) and a viewer of other posts (indirect), or they could be part of an organization promoting events while also participating in personal social activities.
+* Observation: A student using MoodBoard may act as both a direct and indirect stakeholder. For example, they might be a content creator (direct) and a viewer of other posts (indirect), or they could be part of an organization promoting events while also participating in personal social activities. When acting in these different roles, they might want to use the app differently with different privacy/visibility settings.
 * Design Response: Allow users to toggle between different roles (e.g., personal, organization, or academic). Each role can have separate feeds and privacy settings, helping users manage their interactions and content differently based on their current activity.
  
+ ### Stakeholders: Non-targeted Use (Prompt 4)
+* Observation: MoodBoard could be used for purposes outside its intended scope, such as spreading misinformation or organizing inappropriate gatherings. This might be especially problematic with the app’s collaborative features. 
+* Design Response: Implement content moderation and reporting mechanisms, where users can flag posts or events that violate guidelines. Users can report event that do not align with app guidelines and these events can be removed by content moderators. 
+
 ## Storyboarding and sketching
 
 ### Story 1: Posting Concert
