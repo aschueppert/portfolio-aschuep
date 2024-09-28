@@ -18,7 +18,6 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
 ## MoodBoard Concepts
 
 
-
 ### Concept: Draft [Item]
 
 **Purpose**: Allow groups of people to create and collaborate on drafts of content.
@@ -59,6 +58,8 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
     getContent(d: Draft, out cs: set Item):
         cs = d.selected
 
+    
+
 
 ---
 
@@ -66,19 +67,21 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
 
 **Purpose**: Share approved content with other users.
 
-**Operational Principle**: Once the draft is ready, a post can be created using `createPost(u, ms, c, out d)`. Approval from the necessary users is managed via `approvePost(m, d)`, and only when all approvers have approved can the post be made public with `post(m, d)`. Content from a post can be retrieved using `getContent(d, out cs)`.
+**Operational Principle**: Once the draft is ready, a post can be created using `createPost(u, ms, c, out d)` Approval from the necessary users is managed via `approvePost(m, d)`, and only when all approvers have approved can the post be made public with `post(m, d)`. Once post is posted it can be deleted using `deletePost(m,d)`. Before a post is deleted but after being posted, you can find all posts by a user m using `getPostbyUser(m:user)`
 
 **State**:
 - `posts`: set Post
 - `approvers`: posts -> set User
 - `approved`: posts -> set User
 - `content`: posts -> set Item
+- `attendees`: posts -> set User
 
 **Actions**:
 
-    createPost(u: User, ms: set User, c: set Item, out d: Post):
+    createPost(u: User, ms: set User, c: set Item, out d: Post,):
         u in ms
         d.approvers = ms
+        d.event=e
         d.content = c
 
     approvePost(m: User, d: Post):
@@ -90,9 +93,47 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
         posts += d
     getApprovers( d: Post, ms: set User):
         ms= d.approvers 
+
+    deletePost(m: User, d: Post):
+        d in posts
+        m in d.approvers
+        posts-=d
+
+    getPostbyUser(m:user, out ds:set Post)
+        for post in posts
+            if m in post.approvers:
+                ds+=post
+        
     
+### Concept: Event [Item]
+**Purpose**: Allow posts to be events that other users can RSVP to 
+**Operational Principle**: An event can be created using `createEvent(u, ms, c, out d)`. Once created attendees can add themselves using `addAttendee(u,e)`.
+
+**State**:
+- `events`: set Event
+- `hosts`: events -> set User
+- `attendees`: events -> set User
+- `content`: events -> one Item
+
+**Actions**:
+
+    createEvent(u:User, hs: set User, c: Item, out e: Event):
+        u in hs
+        e.hosts=hs
+        e.content=c
+        evenst+=event
+        
+    addAttendee(a:User,e:Event):
+        e in events
+        e.attendees+=a
 
 
+    getEventbyHost(m:user, out ds:set Event)
+        for event in events
+            if m in event.hosts:
+                ds+=event
+
+    
 
 ---
 
@@ -185,14 +226,21 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
     addLabeler(u:User,p:Item):
         label_allowed[p]+=u
 
+    filterByLabel(ps: set Item, l:label, out lps):
+        for p in ps:
+            if p in l.items:
+                lps+=p
+
+
+
 
 ---
 
 ### Concept: Group [Item]
 
-**Purpose**: Save content to groups and RSVP to events.
+**Purpose**: Allow users to save content to groups, events to RSVP list, and users as friends and followers
 
-**Operational Principle**: Users create groups via `createGroup(u, s, out g)` and then add content using `addItem(u, p, g)`. Items saved to a group can be retrieved via `getItems(g, out ps)`. This allows for categorization of content or RSVP management for events.
+**Operational Principle**: Users create groups via `createGroup(u, s, out g)` and then add items (users or posts) using `addItem(u, p, g)`. Items saved to a group can be retrieved via `getItems(g, out ps)`
 
 **State**:
 - `groups`: set Group
@@ -218,34 +266,6 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
 
 ---
 
-### Concept: Relationship [Item]
-
-**Purpose**: Allow users to choose whose content they see.
-
-**Operational Principle**: Users can define relationships via `createRelationship(u, s, out r)` and then add members using `addMember(u, m, r)`. The list of users in a relationship can be retrieved using `getMembers(u, r, out ms)`. This controls whose content appears in the user’s feed, allowing for a personalized social experience.
-
-**State**:
-- `relationships`: set Relationship
-- `user`: relationships -> one User
-- `members`: relationships -> set User
-- `name`: relationships -> one String
-
-**Actions**:
-
-    createRelationship(u: User, s: String, out r: Relationship):
-        r.user = u
-        r.name = s
-    
-    addMember(u: User, m: User, r: Relationship):
-        if u == r.user:
-            r.members += m
-
-    getMembers(u: User, r: Relationship, out ms: set User):
-        ms = r.members
-
-
----
-
 ## Dependency
 ![dependency diagram](assets/dependency.png)
 
@@ -257,8 +277,8 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
         - **Actions**: 
             - `Authenticating.register(username, password, out user)` to create the user account.
             - `Sessioning.start(user, out session)` to start an authenticated session for the user.
-            - `Group.createGroup(user, "Yes", out RSVPyesGroup)`,`Group.createGroup(user, "No", out RSVPnoGroup)`,`Group.createGroup(user, "Maybe", out RSVPmayGroup)` to initialize RSVP-related groups.
-            - `Relationship.createRelationship(user, "Friends")` and `Relationship.createRelationship(user, "Following")` to initialize user relationship categories.
+            - `Group.createGroup(user, "Yes", out RSVPyesGroup)`,`Group.createGroup(user, "No", out RSVPnoGroup)`,`Group.createGroup(user, "Maybe", out RSVPmaybeGroup)` to initialize RSVP-related groups.
+            - `Group.createGroup(user, "Friends", out friendGroup)` and `Group.createGroup(user, "Following", out followinGroup)` to initialize user relationship categories.
 
 2. **Login and Session Management:**
     - **Sync login(username: String, password: String, out user: User, out session: Session):**
@@ -290,28 +310,47 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
             - `Sessioning.getUser(session, out user)` for authentication.
             - `Draft.addContent(user, draft, content)` to update the draft with new material.
 
-4. **Post Creation and Approval:**
-    - **Sync createPostFromDraft(session: Session, draft: Draft):**
+4. **Pos/Event Creation and Approval:**
+    - **Sync createPost(session: Session, draft: Draft):**
         - **Purpose**: Convert the draft into a post after review.
         - **Actions**: 
             - `Sessioning.getUser(session, out user)` to verify the session.
             - `Draft.getContent(draft, out content)` to retrieve the finalized content.
-            - `Post.createPost(user, members, content)` to create a new post for approval.
+            - `Post.createPost(user, members, False, content)` to create a new post for approval.
+    - **Sync createEvent(session: Session, draft: Draft):**
+        - **Purpose**: Convert the draft into a post after review.
+        - **Actions**: 
+            - `Sessioning.getUser(session, out user)` to verify the session.
+            - `Draft.getContent(draft, out content)` to retrieve the finalized content.
+            - `Post.createPost(user, members, True, content)` to create a new event for approval.
 
     - **Sync approvePost(session: Session, post: Post):**
         - **Purpose**: Approve content for publishing.
-        - **Action**: `Post.approvePost(user, post)` to mark the post as approved.
-
-    - **Sync createPost(session:Session,post:Post):**
-        - **Purpose**: Publish content
         - **Action**: 
+            - `Sessioning.getUser(session, out user)` to verify the session.
+            -`Post.approvePost(user, post)` to mark the post as approved.
+
+    - **Sync post(session:Session,post:Post):**
+        - **Purpose**: Publish content
+        - **Action**:
+            -- `Sessioning.getUser(session, out user)` to verify the session. 
             - `Post.post(user, post)` to add post to published posts
             - `Post.getApprovers(post, out members)` to get post approvers
-            - for user in members `Label.addLabeler(user, post)` to add post to published posts
+            - for user in members `Label.addLabeler(user, post)` to allow posters to label
+
+    - **Sync createEvent(session:Session, post:Post):**
+        - **Purpose**: Create event from post
+        - **Action**: 
+            - `Sessioning.getUser(session, out user)` to verify the session.
+            - `Post.getApprovers(post, out members)` to get post approvers
+            - `Event.createEvent(user,members,post)` to create an event hosted by approvers
+            - `Posts.deletePost(user,post)` to delete post that is now an event
+            - for user in members `Label.addLabeler(user, event)` to allow hosts to label
 
     - **Sync labelPost(session: Session, label: String, post: Post):**
         - **Purpose**: Assign a thematic label to the post.
         - **Actions**: 
+            - `Sessioning.getUser(session, out user)` to verify the session.
             - `Label.getLabel(label, out labelObject)` to retrieve the label.
             - `Label.addLabel(user, post, labelObject)` to categorize the post.
     
@@ -320,37 +359,60 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
     - **Sync savePost(session: Session, post: Post, group: String):**
         - **Purpose**: Save a post to a user-defined group.
         - **Actions**: 
+            -- `Sessioning.getUser(session, out user)` to verify the session.
             - `Group.getGroup(user, group, out groupObject)` to find the target group.
             - `Group.addItem(user, post, groupObject)` to save the post.
 
-    - **Sync rsvpEvent(session: Session, post: Post, response: String):**
+    - **Sync rsvpEvent(session: Session, event: Event, response: String):**
         - **Purpose**: Respond to event invites via RSVP (Yes, No, Maybe).
         - **Actions**: 
+            -- `Sessioning.getUser(session, out user)` to verify the session.
             - `Group.getGroup(user, response, out group)` to get the appropriate RSVP group.
-            - `Group.addItem(user, post, group)` to RSVP to the event.
+            - `Group.addItem(user, event, group)` to RSVP to the event.
+            - if response == "Yes" `Event.addAttendee(user, event)`
 
 6. **Managing Relationships:**
     - **Sync addFriend(session: Session, friend: User):**
         - **Purpose**: Add another user to the "Friends" group.
         - **Actions**: 
-            - `Relationship.getRelationship(user, "Friends", out friendsRel)` to access the user's friend list.
-            - `Relationship.addMember(user, friend, friendsRel)` to add the friend to the list.
+            -- `Sessioning.getUser(session, out user)` to verify the session.
+            - `Group.getGroup(user, "Friends", out user_friendsRel)` to access the user's friend list.
+            - `Group.getGroup(friend, "Friends", out f_friendsRel)` to access the friend's friend list.
+            - `Group.addItem(user, friend, user_friendsRel)` to add the friend to the user's list.
+            - `Group.addItem(friend, user, f_friendsRel)` to add the user to the friend's list.
 
     - **Sync followUser(session: Session, targetUser: User):**
         - **Purpose**: Follow another user.
         - **Actions**: 
-            - `Relationship.getRelationship(user, "Following", out followingRel)` to access the following list.
-            - `Relationship.addMember(user, targetUser, followingRel)` to add the user to the "Following" list.
+            -- `Sessioning.getUser(session, out user)` to verify the session.
+            - `Group.getGroup(user, "Following", out followingRel)` to access the following list.
+            - `Group.addItem(user, targetUser, followingRel)` to add the user to the "Following" list.
 
-7. **Content Feed and Filtering:**
-    - **Sync getFeed(session: Session, label: String, out feed: set[Post]):**
-        - **Purpose**: Generate the user's content feed filtered by a specific label.
-        - **Actions**: 
-            - `Label.getLabel(label, out labelObject)` to find posts tagged with the label.
-            - `Label.getItems(labelObject, out posts)` to retrieve relevant posts.
-            - `Relationship.getMembers(user, "Friends", out friends)` and `Relationship.getMembers(user, "Following", out following)` to fetch content from friends and followed users.
-            - Combine and return posts authored by any friend or followed user.
-    
+7. To improve the `getFeed` method in the provided specification, we'll clarify the feed generation process, ensuring that it efficiently retrieves and filters content by both label and user relationships (friends and followed users). Here's the adjusted version of **Sync getFeed**:
+
+### 7. **Content Feed and Filtering:**
+   - **Sync getFeed(session: Session, label: String, out feed: set[Post, Event]):**
+       - **Purpose**: Generate the user's content feed filtered by a specific label, with content from friends and followed users.
+       - **Actions**:
+           1. **Session Verification**:  
+              - `Sessioning.getUser(session, out user)` to verify the session and retrieve the user object.
+              
+           2. **Retrieve Label-Tagged Content**:  
+              - `Label.getLabel(label, out labelObject)` to find the specified label object.
+
+              
+           3. **Retrieve Friends' and Followed Users' Posts**:  
+              - `Group.getItems(user, "Friends", out friends)` to retrieve the user's friends.
+              - `Group.getItems(user, "Following", out following)` to retrieve the users the user is following.
+              
+              - For each friend or followed user:
+                - `Post.getPostsbyUser(friend, out friendPosts)` and `Event.getEventsbyHost(friend, out friendEvents)` to retrieve their posts and events.
+                - Filter `friendPosts` and `friendEvents` by label, ensuring only labeled content is included: `Label.filterByLabel(friendPosts, labelObject, out filteredFriendPosts)` and `Label.filterByLabel(friendEvents, labelObject, out filteredFriendEvents)`.
+              
+           4. **Merge and Sort Feed**:  
+              - Combine `labeledPosts`, `filteredFriendPosts`, and `filteredFriendEvents` into the final feed:  
+                `feed = labeledPosts.union(filteredFriendPosts).union(filteredFriendEvents)`.
+              - Optionally sort the `feed` based on creation time or relevance.
 
 ## Wireframing
 
