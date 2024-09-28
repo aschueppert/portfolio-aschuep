@@ -77,6 +77,7 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
 **Actions**:
 
     createPost(u: User, ms: set User, c: set Item, out d: Post):
+        u in ms
         d.approvers = ms
         d.content = c
 
@@ -87,9 +88,11 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
     post(m: User, d: Post):
         d.approved == d.approvers:
         posts += d
+    getApprovers( d: Post, ms: set User):
+        ms= d.approvers 
+    
 
-    getContent(d: Post, out cs: set Item):
-        cs = d.content
+
 
 ---
 
@@ -171,13 +174,16 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
         for label in labels:
             if label.name=s
                 l=label
-                
+
     addLabel(u: User, p: Item, l: label):
         if u in label_allowed[p]:
             l.items += p
 
     getItems(l: Label, out ps: set Item):
         ps = l.items
+
+    addLabeler(u:User,p:Item):
+        label_allowed[p]+=u
 
 
 ---
@@ -229,13 +235,14 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
     createRelationship(u: User, s: String, out r: Relationship):
         r.user = u
         r.name = s
-
+    
     addMember(u: User, m: User, r: Relationship):
         if u == r.user:
             r.members += m
 
     getMembers(u: User, r: Relationship, out ms: set User):
         ms = r.members
+
 
 ---
 
@@ -250,7 +257,7 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
         - **Actions**: 
             - `Authenticating.register(username, password, out user)` to create the user account.
             - `Sessioning.start(user, out session)` to start an authenticated session for the user.
-            - `Group.createGroup(user, "RSVP Yes", out g)` to initialize RSVP-related groups.
+            - `Group.createGroup(user, "Yes", out RSVPyesGroup)`,`Group.createGroup(user, "No", out RSVPnoGroup)`,`Group.createGroup(user, "Maybe", out RSVPmayGroup)` to initialize RSVP-related groups.
             - `Relationship.createRelationship(user, "Friends")` and `Relationship.createRelationship(user, "Following")` to initialize user relationship categories.
 
 2. **Login and Session Management:**
@@ -295,12 +302,20 @@ MoodBoard is a social app that fosters collaboration, personalization, and inten
         - **Purpose**: Approve content for publishing.
         - **Action**: `Post.approvePost(user, post)` to mark the post as approved.
 
+    - **Sync createPost(session:Session,post:Post):**
+        - **Purpose**: Publish content
+        - **Action**: 
+            - `Post.post(user, post)` to add post to published posts
+            - `Post.getApprovers(post, out members)` to get post approvers
+            - for user in members `Label.addLabeler(user, post)` to add post to published posts
+
     - **Sync labelPost(session: Session, label: String, post: Post):**
         - **Purpose**: Assign a thematic label to the post.
         - **Actions**: 
             - `Label.getLabel(label, out labelObject)` to retrieve the label.
             - `Label.addLabel(user, post, labelObject)` to categorize the post.
-
+    
+        
 5. **Saving and Managing Content:**
     - **Sync savePost(session: Session, post: Post, group: String):**
         - **Purpose**: Save a post to a user-defined group.
