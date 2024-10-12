@@ -59,6 +59,8 @@ layout: doc
 - `include Saving[Authenticating.User, Authenticating.User]`
 - `include Friending[Authenticating.User]`
 
+# Diagram
+![Diagram](./assets/diagram.jpeg)
 # Reflection
 When I built the backend, it became clear that my original design missed some key details that I had to fix when implementing. One of the first issues I encountered was how I wanted relationships to work on the app. I originally wanted to have friends like the default code provided, but I worried about how this limited what posts different users could see. I want this relationship to help tailor the feed not limit it. Thus I decided to allow users to follow people. Users would still be able to see everyones post but would be able to refine their feed by choosing who to follow. 
 
@@ -76,3 +78,4 @@ NOTE: some commits appear as coming from a different user. I broke my laptop on 
 
 # Deployed App
 
+[https://backend-yc95.vercel.app/](https://backend-yc95.vercel.app/)
