@@ -7,7 +7,7 @@ layout: doc
 
 ## Deployed App
 
-[moodboard-theta.vercel.app](moodboard-theta.vercel.app)
+https://moodboard-theta.vercel.app/
 
 ## Heuristic Evaluation
 
