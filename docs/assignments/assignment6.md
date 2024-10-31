@@ -12,10 +12,10 @@ layout: doc
 | **Create an account**            | Navigate to the registration page and fill out the required fields (username, email, password).     | Creating an account allows users to personalize their experience and access exclusive features, enhancing user engagement and retention.                |
 | **View post with theme “music”** | Use the search function or browse the “music” category to find relevant posts.                      | Viewing themed posts helps users discover content that matches their interests, fostering community interaction and discussion.                         |
 | **Follow user “Chloe”**          | Go to Chloe’s profile and click the “Follow” button.                                                | Following users creates a personalized feed, ensuring users stay updated with content from those they are interested in, thereby increasing engagement. |
-| **Create a draft**               | Click on “Create Post,” then add five pictures and a comment in the provided fields.                | Drafting a post allows users to organize their thoughts and media before publishing, ensuring quality and relevance in their contributions.             |
+| **Create a draft**               | Click on “Create Post,” then add three pictures and a comment in the provided fields.               | Drafting a post allows users to organize their thoughts and media before publishing, ensuring quality and relevance in their contributions.             |
 | **Approve a post and set theme** | Review the submitted post for compliance, then click “Approve” and select a theme from the options. | Approving posts maintains community standards and quality, while setting a theme helps categorize content for easier discovery by other users.          |
-| **Create an event**              | Click on “Create Event,” fill in details such as name, date, time, and description, then save.      | Creating events promotes community engagement by allowing users to organize and participate in activities, fostering a sense of belonging.              |
-| **Save a post**                  | Click the “Save” button while viewing or editing a post to store it in your account for later.      | Saving posts provides users the ability to revisit content they find interesting, enhancing their interaction with the platform over time.              |
+| **Create an event**              | Click on the event button and add a location.                                                       | Creating events promotes community engagement by allowing users to organize and participate in activities, fostering a sense of belonging.              |
+| **Save a post**                  | Click the save button for a post to save it in your account for later.                              | Saving posts provides users the ability to revisit content they find interesting, enhancing their interaction with the platform over time.              |
 
 ## Study Reports
 
@@ -83,7 +83,7 @@ During the debrief, the participant mentioned that they enjoyed that the app had
 #### 1. **Error Message Upon Initial Visit**
 
 - **Flaw:** The "must be logged in" message confused Participant 1, as they were already attempting to log in.
-- **Cause:** This likely occurs because the app immediately prompts the user to log in, but does not intuitively guide new users to the login page.
+- **Cause:** This likely occurs because the app is checking that the user is logged in before rendering the main page but the error message is not contextually relevant.
 - **Solution:** Removing or modifying the error message so it appears only when needed (e.g., when attempting a restricted action while not logged in) would reduce confusion.
 - **Type & Severity:** Linguistic; Minor.
 
@@ -91,7 +91,7 @@ During the debrief, the participant mentioned that they enjoyed that the app had
 
 - **Flaw:** Participant 1 had difficulty locating their created post and understanding where to set a theme after drafting it.
 - **Cause:** The navigation hierarchy may lack clear labeling or grouping of related actions, leading to excessive back-and-forth steps.
-- **Solution:** Implementing clearer visual cues, such as a post-draft summary page with direct links for further actions (e.g., set theme, approve, edit) could improve task flow.
+- **Solution:** Implementing clearer visual cues, such as a post-draft summary page with direct links for further actions could improve task flow. In addition could figure out how to keep the user on the same page after creating a post for approving and setting theme.
 - **Type & Severity:** Conceptual; Moderate.
 
 #### 3. **Scrolling Visibility on Theme Selection Page**
