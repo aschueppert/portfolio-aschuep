@@ -12,3 +12,5 @@ This dilemma reflects a much larger debate about the use of patient data in heal
 The idea of sharing such deeply personal and sensitive data also brings up pressing concerns about consent, data security, and the potential for misuse. The stakes are high: genomic data is not only uniquely identifying but also holds implications for biological relatives. This underscores the core challenge faced by developers and healthcare providers—how to harness the power of data-driven innovation to advance public health while fiercely protecting individual rights to privacy.
 
 As we continue to develop new health technologies, balancing these priorities is crucial. Responsible innovation requires a commitment to transparency, security, and public trust, ensuring that the benefits of data-driven advancements never come at the cost of patient autonomy and ethical integrity.
+
+_Note: Chat-gpt assisted with formulating some of the thoughts in this blog post._
